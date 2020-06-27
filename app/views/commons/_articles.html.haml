@@ -1,5 +1,6 @@
 .container
   - articles.each do |article|
-    = article.title
-    = article.content
+    = link_to article_path(article) do
+      = article.title
+      = article.content
   = link_to 'add', new_article_path 
