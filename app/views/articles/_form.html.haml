@@ -2,9 +2,12 @@
   .result
   .panel-title
     -# 本情報取得
-    .form-group{id:"get-book"}
-      %input{type:"text",class:"form-controll"}
+    
   = form_with(model: article, local: true) do |f|
+    %div
+      = f.hidden_field :book_title, :value => book_title
+    %div
+      = f.hidden_field :image_url, :value => image_url
     %div
       = f.label :title, 'タイトル'
     %div

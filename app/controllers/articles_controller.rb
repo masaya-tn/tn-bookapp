@@ -5,6 +5,9 @@ class ArticlesController < ApplicationController
 
   def new
     @article = current_user.articles.build
+    @book_title = params[:book_title]
+    @authors = params[:authors]
+    @image_url = params[:image_url]
   end
 
   def create
