@@ -1,0 +1,4 @@
+検索
+= form_tag(books_path,:method => 'get') do
+  = text_field_tag :search
+  = submit_tag 'Search', :name => nil

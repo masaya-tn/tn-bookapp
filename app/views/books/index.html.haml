@@ -1,0 +1,12 @@
+- @r.each do |r|
+  - volumeInfo = r['volumeInfo']
+  - book_title = volumeInfo['title']
+  = book_title
+
+  - authors = volumeInfo['authors']
+  - authors.each do |author|
+    = author
+
+  - links = volumeInfo['imageLinks']
+  - image_url = links['thumbnail']
+  = image_tag image_url

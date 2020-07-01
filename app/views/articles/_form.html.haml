@@ -1,4 +1,9 @@
 .container
+  .result
+  .panel-title
+    -# 本情報取得
+    .form-group{id:"get-book"}
+      %input{type:"text",class:"form-controll"}
   = form_with(model: article, local: true) do |f|
     %div
       = f.label :title, 'タイトル'
