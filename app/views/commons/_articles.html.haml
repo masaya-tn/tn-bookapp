@@ -1,6 +1,10 @@
-.container
+.cards
   - articles.each do |article|
-    = link_to article_path(article) do
+    = link_to article_path(article), class: 'card' do
+      = image_tag article.image_url
+      = article.book_title
+      = article.author
       = article.title
       = article.content
-  = link_to '追加', searchs_path
+
+= link_to '追加', searchs_path
