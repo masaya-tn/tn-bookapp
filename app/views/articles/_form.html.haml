@@ -1,13 +1,5 @@
 .container
-  .result
-  .panel-title
-    -# 本情報取得
-    
   = form_with(model: article, local: true) do |f|
-    %div
-      = f.hidden_field :book_title, :value => book_title
-    %div
-      = f.hidden_field :image_url, :value => image_url
     %div
       = f.label :title, 'タイトル'
     %div
@@ -16,4 +8,10 @@
       = f.label :content, '内容'
     %div
       = f.text_area :content
+    %div
+      = f.hidden_field :author, :value => @authors
+    %div
+      = f.hidden_field :book_title, :value => @book_title
+    %div
+      = f.hidden_field :image_url, :value => @image_url
     = f.submit '保存'
