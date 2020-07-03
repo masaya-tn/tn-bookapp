@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :searchs
   resources :books
 
+  resource :profile
 end

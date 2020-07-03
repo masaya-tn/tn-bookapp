@@ -19,12 +19,20 @@ header {
 
 .login-button {
   text-decoration: none;
-  color: black;
+  color: white;
   border-radius: 8px;
-  background-color: gray;
+  background-color: blue;
   padding: 4px 16px;
 }
 
 .header_pageTitle {
   margin-left: 10px;
 }
+
+.header_avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-top: 20px;
+    margin-right: 100px;
+  }
