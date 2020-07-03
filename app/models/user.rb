@@ -24,4 +24,8 @@ class User < ApplicationRecord
     profile&.nickname || self.email.split('@').first
   end
 
+  def has_written?(article)
+    articles.exists?(id: article.id)
+  end
+
 end

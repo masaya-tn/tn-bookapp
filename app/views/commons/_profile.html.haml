@@ -1,3 +1,5 @@
 = image_tag user.avatar_image, class: 'icon'
 #{user.display_name}
 = user.profile&.introduction
+
+= link_to '編集する', edit_profile_path, class: 'text-decoration'
