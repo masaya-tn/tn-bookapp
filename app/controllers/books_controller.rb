@@ -6,7 +6,8 @@ class BooksController < ApplicationController
       response = Net::HTTP.get(uri)
       res = JSON.parse(response)
       @r = res['items']
-
       
     end
+
+    private
   end
