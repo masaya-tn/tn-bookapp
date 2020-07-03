@@ -1,14 +1,23 @@
-- @r.each do |r|
-  - volumeInfo = r['volumeInfo']
-  - @book_title = volumeInfo['title']
-  = @book_title
+- if @r.nil?
+  キーワードに合致する情報は見つかりませんでした
+  よろしければ記事のタイトルに書名を入力してご利用いただければ幸いです
+  = link_to '戻る', searchs_path
+  = link_to '記事を書く', new_article_path
+- else
+  - @r.each do |r|
+    - volumeInfo = r['volumeInfo']
+    - @book_title = volumeInfo['title']
+    - if !@book_title.nil?
+      = @book_title
 
-  - @authors = volumeInfo['authors']
-  - @authors.each do |author|
-    = author
+    - @authors = volumeInfo['authors']
+    - if !@authors.nil?
+      - @authors.each do |author|
+        = author
 
-  - links = volumeInfo['imageLinks']
-  - @image_url = links['thumbnail']
-  = image_tag @image_url
-  
-  = link_to '記事を書く', new_article_path(:book_title => @book_title, :authors => @authors, :image_url => @image_url)
+    - links = volumeInfo['imageLinks']
+    - if !links.nil?
+      - @image_url = links['thumbnail']
+      = image_tag @image_url
+        
+    = link_to '記事を書く', new_article_path(:book_title => @book_title, :authors => @authors, :image_url => @image_url)
