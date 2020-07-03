@@ -3,7 +3,8 @@
 = @article.author
 = @article.title
 = @article.content
-= image_tag @article.user.avatar_image, class: 'icon_mini'
+= link_to account_path(@article.user) do
+  = image_tag @article.user.avatar_image, class: 'icon_mini'
 
 - if user_signed_in? && current_user.has_written?(@article)  
   = link_to '編集する', edit_article_path(@article), class: 'text-decoration'
