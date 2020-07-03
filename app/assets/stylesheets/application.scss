@@ -1,5 +1,7 @@
 @import 'header';
 @import 'cards';
+@import 'common';
+@import 'profile';
 
 $breakpoints: (
   'sm': 'screen and (min-width: 350px)',
