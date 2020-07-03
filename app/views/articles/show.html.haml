@@ -3,5 +3,8 @@
 = @article.author
 = @article.title
 = @article.content
-= link_to '編集する', edit_article_path(@article), class: 'text-decoration'
-= link_to '削除する', article_path(@article),class: 'text-decoration' , data: {method: 'delete', confirm: '本当に削除してもよろしいですか'}
+= image_tag @article.user.avatar_image, class: 'icon_mini'
+
+- if user_signed_in? && current_user.has_written?(@article)  
+  = link_to '編集する', edit_article_path(@article), class: 'text-decoration'
+  = link_to '削除する', article_path(@article),class: 'text-decoration' , data: {method: 'delete', confirm: '本当に削除してもよろしいですか'}
