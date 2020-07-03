@@ -2,4 +2,10 @@
 #{user.display_name}
 = user.profile&.introduction
 
-= link_to '編集する', edit_profile_path, class: 'text-decoration'
+- if user == current_user 
+  = link_to '編集する', edit_profile_path, class: 'text-decoration'
+- else 
+  - if current_user&.has_followed?(user)
+    = link_to 'Unfollow', account_unfollows_path(user), data: {method: 'post'}
+  - else
+    = link_to 'Follow', account_follows_path(user), data: {method: 'post'}
