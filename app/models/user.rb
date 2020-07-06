@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :articles, dependent: :destroy
-
+  has_many :likes, dependent: :destroy
   has_many :following_relationships, foreign_key: 'follower_id', class_name: 'Relationship', dependent: :destroy
   has_many :followings, through: :following_relationships, source: :following
 
@@ -48,6 +48,10 @@ class User < ApplicationRecord
 
   def has_followed?(user)
     following_relationships.exists?(following_id: user.id)
+  end
+
+  def has_liked?(article)
+    likes.exists?(article_id: article.id)
   end
 
   private
