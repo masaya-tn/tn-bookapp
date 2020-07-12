@@ -4,7 +4,7 @@ class LikesController < ApplicationController
 	def show
 		article = Article.find(params[:article_id])
 		like_status = current_user.has_liked?(article)
-		render json: { hasLinked: like_status }
+		render json: { hasLiked: like_status }
 	end
 	
 	def create
