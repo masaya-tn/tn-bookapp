@@ -66,61 +66,55 @@ document.addEventListener('DOMContentLoaded', () => {
 				console.log(e)
 			})
 	})
+
+	
 })
 
 // follow ---------------------------------------
-const handleFollowButtonDisplay = (hasFollowed) => {
-	if (hasFollowed) {
-		$('.unfollow').removeClass('hidden')
-	} else {
-		$('.follow').removeClass('hidden')
-	}
-}
+// const handleFollowButtonDisplay = (hasFollowed) => {
+// 	if (hasFollowed) {
+// 		$('.unfollow').removeClass('hidden')
+// 	} else {
+// 		$('.follow').removeClass('hidden')
+// 	}
+// }
 
-const listenFollowEvent = (followingId) => {
-	$('.unfollow').on('click', () => {
-		axios.post(`/accounts/${followingId}/unfollows`)
-		  .then((response) => {
-				if (response.data.status === 'ok') {
-					$('.follow').removeClass('hidden')
-					$('.unfollow').addClass('hidden')
-				}
-			})
-			.catch((e) => {
-				window.alert('Error')
-				console.log(e)
-			})
-	})
-}
+// const listenUnfollowEvent = (followingId) => {
+// 	$('.unfollow').on('click', () => {
+// 		$('.follow').removeClass('hidden')
+// 		$('.unfollow').addClass('hidden')
+		
+// 	})
+// }
 
-const listenUnfollowEvent = (followingId) => {
-	$('.follow').on('click', () => {
-		axios.post(`/accounts/${followingId}/follows`)
-		  .then((response) => {
-				if (response.data.status === 'ok') {
-					$('.unfollow').removeClass('hidden')
-					$('.follow').addClass('hidden')
-				}
-			})
-			.catch((e) => {
-				window.alert('Error')
-				console.log(e)
-			})
-	})
-}
+// const listenFollowEvent = (followingId) => {
+// 	$('.follow').on('click', () => {
+// 		axios.post(`/accounts/${followingId}/follows`)
+// 		  .then((response) => {
+// 				if (response.data.status === 'ok') {
+// 					$('.unfollow').removeClass('hidden')
+// 					$('.follow').addClass('hidden')
+// 				}
+// 			})
+// 			.catch((e) => {
+// 				window.alert('Error')
+// 				console.log(e)
+// 			})
+// 	})
+// }
 
-document.addEventListener('DOMContentLoaded', () => {
-	const dataset = $('#profile-show').data()
-	const followingId = dataset.followingId
-	const followerId = dataset.followerId
+// document.addEventListener('DOMContentLoaded', () => {
+// 	const dataset = $('#profile-show').data()
+// 	const followingId = dataset.followingId
+// 	const followerId = dataset.followerId
 
-	axios.get(`/accounts/${followingId}/follows/${followerId}`)
-	  .then((response) => {
-			const hasFollowed = response.data.hasFollowed
-			handleFollowButtonDisplay(hasFollowed)
-		})
+// 	axios.get(`/accounts/${followingId}/follows/${followerId}`)
+// 	  .then((response) => {
+// 			const hasFollowed = response.data.hasFollowed
+// 			handleFollowButtonDisplay(hasFollowed)
+// 		})
 
-		listenFollowEvent
-		listenUnfollowEvent
+// 	listenFollowEvent
+// 	listenUnfollowEvent
 	  
-})
+// })

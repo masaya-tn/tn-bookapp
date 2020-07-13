@@ -6,8 +6,18 @@
   .profile_actionButton
     - if user == current_user 
       = link_to '編集する', edit_profile_path, class: 'text-decoration'
+      .cards
+        - @articles.each do |article|
+          = link_to article_path(article), class: 'card' do
+            = image_tag article.image_url
+            = article.book_title
+            = article.author
+            = article.title
     - else 
       - if current_user&.has_followed?(user)
-        = link_to 'Unfollow', account_unfollows_path(user), data: {method: 'post'}, class: 'text-decoration hidden unfollow', remote: true
+        = link_to 'Unfollow',account_unfollows_path(user), data: {method: 'post'}, class: 'text-decoration  unfollow'
       - else
-        = link_to 'Follow', account_follows_path(user), data: {method: 'post'}, class: 'text-decoration hidden follow', remote: true
+        = link_to 'Follow', account_follows_path(user), data: {method: 'post'}, class: 'text-decoration  follow'
+      
+      
+
