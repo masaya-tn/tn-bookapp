@@ -1,6 +1,28 @@
-気になる本の記事を検索
-= form_tag(searcheds_path,:method => 'get') do
-  = text_field_tag :search
-  = submit_tag 'Search', :name => nil
+.articlesearch
+  気になる本の記事を検索
+  = form_tag(searcheds_path,:method => 'get') do
+    = text_field_tag :search
+    = submit_tag 'Search', :name => nil
 
-= render 'commons/articles', articles: @articles, ranks: @article_ranking
+%h3
+  人気記事top3
+.cards
+  - @article_ranking.each do |rank|
+    = link_to article_path(rank), class:'card' do
+      .article_toppage
+        .book_image
+          = image_tag rank.image_url   
+        .article_details     
+          .article_title
+            = rank.title
+          .book_title
+            = rank.book_title
+          .author_name
+            = rank.author
+      .article_toppage_heart
+        = image_tag 'heart.svg'
+        %span= rank.likes.count
+
+= render 'commons/articles', articles: @articles
+
+= link_to '追加', searchs_path

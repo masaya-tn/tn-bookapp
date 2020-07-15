@@ -12,19 +12,15 @@
   %body
     %header.header
       %p.header_pageTitle
-        = link_to 'BOOKLOG', root_path, class: 'text-decoration'
+        = link_to 'BOOKLOG', root_path, class: ' pageTitle'
 
       - if user_signed_in?
-        .dropdown
-          = image_tag current_user.avatar_image , class: 'header_avatar dropbtn'
-          .dropdown-content
-            = link_to 'プロフィール', profile_path
-            = link_to 'ログアウト' , destroy_user_session_path, data: { method: 'delete' }
+        = link_to 'マイページ', profile_path, class: 'mypage'
       - else
         = link_to 'ログイン', new_user_session_path, class: 'login-button'
     %p.notice
       = notice
     %p.alert
       = alert
-    
-    = yield
+    .all_wrapper
+      = yield

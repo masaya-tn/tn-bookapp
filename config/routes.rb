@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :searchs
   resources :books
   resources :searcheds, only: [:index]
+  resources :timelines, only: [:index]
 
   resources :accounts, only: [:show] do
     resources :follows, only: [:show, :create]

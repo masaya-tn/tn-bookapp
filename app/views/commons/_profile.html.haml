@@ -6,6 +6,7 @@
   .profile_actionButton
     - if user == current_user 
       = link_to '編集する', edit_profile_path, class: 'text-decoration'
+      = link_to 'フォローしたアカウントの記事', timelines_path, class: 'text-decoration'
       
     - else 
       - if current_user&.has_followed?(user)
