@@ -26,6 +26,7 @@ gem 'annotate'
 gem 'hamlit'
 gem 'better_errors'
 gem 'devise'
+gem 'order_as_specified'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

@@ -1,6 +1,10 @@
-- @searched.each do |s|
-  = link_to article_path(s), class: 'card' do
-    = image_tag s.image_url
-    = s.book_title
-    = s.author
-    = s.title
+- if @searched == []
+  お探しの本についての記事は見つかりませんでした
+  = link_to '戻る', articles_path, class: 'text-decoration'
+- else
+  - @searched.each do |s|
+    = link_to article_path(s), class: 'card' do
+      = image_tag s.image_url
+      = s.book_title
+      = s.author
+      = s.title

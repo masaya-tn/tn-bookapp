@@ -136,6 +136,8 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
+    order_as_specified (1.6)
+      activerecord (>= 5.0.0)
     orm_adapter (0.5.0)
     parallel (1.19.2)
     parser (2.7.1.4)
@@ -282,6 +284,7 @@ DEPENDENCIES
   hamlit
   jbuilder (~> 2.7)
   listen (~> 3.2)
+  order_as_specified
   pg (>= 0.18, < 2.0)
   pry-byebug
   puma (~> 4.1)
