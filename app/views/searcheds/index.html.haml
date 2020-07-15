@@ -1,0 +1,6 @@
+- @searched.each do |s|
+  = link_to article_path(s), class: 'card' do
+    = image_tag s.image_url
+    = s.book_title
+    = s.author
+    = s.title
