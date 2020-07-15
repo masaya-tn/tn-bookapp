@@ -1,7 +1,10 @@
 class ArticlesController < ApplicationController
   def index 
     @articles = Article.all
-  end
+    article_like_count = Article.joins(:likes).group(:article_id).count
+    article_liked_ids = Hash[article_like_count.sort_by{ |_, v| -v }].keys
+    @article_ranking = Article.where(id: article_liked_ids).limit(3)
+    end
 
   def new
     @article = current_user.articles.build
