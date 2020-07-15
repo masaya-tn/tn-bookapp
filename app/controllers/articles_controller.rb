@@ -29,6 +29,9 @@ class ArticlesController < ApplicationController
 
   def edit
     @article = current_user.articles.find(params[:id])
+    @book_title = params[:book_title]
+    @authors = params[:authors]
+    @image_url = params[:image_url]
   end
 
   def update

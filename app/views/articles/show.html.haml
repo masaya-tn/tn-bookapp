@@ -1,15 +1,23 @@
 .article#article-show{data: {article_id: @article.id}}
-  = image_tag @article.image_url
-  = @article.book_title
-  = @article.author
   = @article.title
-  = @article.content
-  = link_to account_path(@article.user) do
-    = image_tag @article.user.avatar_image, class: 'icon_mini'
+  .author_info
+    = link_to account_path(@article.user) do
+      = image_tag @article.user.avatar_image, class: 'icon_mini'
+    = @article.user.profile&.nickname
+  .book_info
+    = image_tag @article.image_url
+    = @article.book_title
+    = @article.author
+  .article_content
+    = @article.content
+
+  -@book_title = @article.book_title
+  -@authors = @article.author
+  -@image_url = @article.image_url
 
   - if user_signed_in?
     - if current_user.has_written?(@article)
-      = link_to '編集する', edit_article_path(@article), class: 'text-decoration'
+      = link_to '編集する', edit_article_path(@article, :book_title => @book_title, :authors => @authors, :image_url => @image_url), class: 'text-decoration'
       = link_to '削除する', article_path(@article),class: 'text-decoration' , data: {method: 'delete', confirm: '本当に削除してもよろしいですか'}
     - else
       .heart.hidden.active-heart

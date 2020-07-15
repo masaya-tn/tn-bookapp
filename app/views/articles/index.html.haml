@@ -19,8 +19,10 @@
             = rank.book_title
           .author_name
             = rank.author
+          .article_toppage_content
+            = rank.content
       .article_toppage_heart
-        = image_tag 'heart.svg'
+        = image_tag 'heart.svg', class: 'iine-image'
         %span= rank.likes.count
 
 = render 'commons/articles', articles: @articles
