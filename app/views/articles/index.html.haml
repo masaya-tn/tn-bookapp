@@ -5,7 +5,7 @@
     = submit_tag 'Search', :name => nil
 
 %h3
-  人気記事top3
+  人気記事top5
 .cards
   - @article_ranking.each do |rank|
     = link_to article_path(rank), class:'card' do
@@ -19,10 +19,14 @@
             = rank.book_title
           .author_name
             = rank.author
+          .article_toppage_content
+            = rank.content
       .article_toppage_heart
-        = image_tag 'heart.svg'
+        = image_tag 'heart.svg', class: 'iine-image'
         %span= rank.likes.count
 
 = render 'commons/articles', articles: @articles
 
-= link_to '追加', searchs_path
+= link_to searchs_path do
+  .float_btn
+    %i.fa.fa-plus

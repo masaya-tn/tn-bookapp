@@ -1,29 +1,108 @@
-.icon {
-    border-radius: 50%;
-    width: 200px;
-    height: 200px;
-}
-
 .profile {
-    &_actionButton {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      font-size: 12px;
-      border-radius: 4px;
-      border: 1px solid black;
-      font-weight: bold;
-      padding: 0px 8px;
-			width: 60px;
-			height: 25px;
-      
-    }
+	border-bottom: 1px solid #dde5e8;
 }
 
-.follow {
-	cursor: pointer
+.profile_icon {
+		border-radius: 50%;
+		border: 2px solid black;
+    width: 100px;
+		height: 100px;
+		
+		margin-bottom: 10px;
 }
 
-.unfollow {
-	cursor: pointer;
+.profile_info {
+	display: flex;
+	flex-direction: column;
+}
+
+.profile_name {
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.profile_introduction {
+	font-size: small;
+	margin-bottom: 10px;
+}
+
+.profile_flex {
+  display: flex;
+  justify-content:space-between;
+  
+}
+
+.profile_actionButton {
+	display: flex;
+	flex-direction: column;
+	justify-content:space-between;
+	
+ }
+
+.edit_btn {
+	display: flex;
+	flex-direction: row-reverse;
+	display: inline-block;
+  max-width: 180px;
+  text-align: left;
+  border: 1px solid brown;
+  font-size: 16px;
+  
+  text-decoration: none;
+  font-weight: bold;
+  padding: 6px 16px;
+  border-radius: 8px;
+	transition: .4s;	
+	margin-right: 10px;
+}
+.edit_btn:hover {
+	background-color: brown;
+  border-color: brown;
+	color: #FFF;
+	.edit_text {
+		color:white;
+	}
+}
+
+.edit_text {
+	text-decoration: none;
+	color: brown;
+	
+}
+
+.delete_btn {
+	display: flex;
+	flex-direction: row-reverse;
+	display: inline-block;
+  max-width: 180px;
+  text-align: left;
+  border: 1px solid red;
+  font-size: 16px;
+  
+  text-decoration: none;
+  font-weight: bold;
+  padding: 6px 16px;
+  border-radius: 8px;
+	transition: .4s;	
+	margin-right: 10px;
+}
+.delete_btn:hover {
+	background-color: red;
+  border-color: red;
+	color: #FFF;
+	.delete_text {
+		color:white;
+	}
+}
+
+.delete_text {
+	text-decoration: none;
+	color: red;
+}
+
+.profile_logout {
+	float: right;
+	margin-top: 30px;
+	margin-bottom: 20px;
+	font-size: small;
 }

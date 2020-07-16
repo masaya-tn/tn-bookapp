@@ -12,7 +12,9 @@
             = article.book_title
           .author_name
             = article.author
+          .article_toppage_content
+            = article.content[0,100]
       .article_toppage_heart
-        = image_tag 'heart.svg'
+        = image_tag 'heart.svg', class: 'iine-image'
         %span= article.likes.count
 

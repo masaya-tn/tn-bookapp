@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+
   def index 
     @articles = Article.all.order(created_at: :desc)
     article_like_count = Article.joins(:likes).group(:article_id).count
@@ -29,6 +31,9 @@ class ArticlesController < ApplicationController
 
   def edit
     @article = current_user.articles.find(params[:id])
+    @book_title = params[:book_title]
+    @authors = params[:authors]
+    @image_url = params[:image_url]
   end
 
   def update
