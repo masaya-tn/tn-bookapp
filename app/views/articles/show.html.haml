@@ -1,14 +1,21 @@
 .article#article-show{data: {article_id: @article.id}}
-  = @article.title
-  .author_info
-    = link_to account_path(@article.user) do
-      = image_tag @article.user.avatar_image, class: 'icon_mini'
-    = @article.user.profile&.nickname
-  .book_info
-    = image_tag @article.image_url
-    = @article.book_title
-    = @article.author
-  .article_content
+  .detail_flex
+    .article_detail_title
+      = @article.title
+    .detail_author_info
+      = link_to account_path(@article.user) do
+        = image_tag @article.user.avatar_image, class: 'icon_mini'
+      = @article.user.profile&.nickname
+  .article_content_wrapper
+    .detail_book_image
+      = image_tag @article.image_url
+    .detail_bookinfo_flex
+      .detail_book_title
+        = @article.book_title
+      .detail_book_author
+        = @article.author
+  .article_border
+  .detail_article_content 
     = @article.content
 
   -@book_title = @article.book_title
@@ -17,10 +24,18 @@
 
   - if user_signed_in?
     - if current_user.has_written?(@article)
-      = link_to '編集する', edit_article_path(@article, :book_title => @book_title, :authors => @authors, :image_url => @image_url), class: 'text-decoration'
-      = link_to '削除する', article_path(@article),class: 'text-decoration' , data: {method: 'delete', confirm: '本当に削除してもよろしいですか'}
+      .article_btn
+        = link_to edit_article_path(@article, :book_title => @book_title, :authors => @authors, :image_url => @image_url) do
+          .edit_btn
+            .edit_text
+              Edit
+        = link_to article_path(@article), data: {method: 'delete', confirm: '本当に削除してもよろしいですか'} do
+          .delete_btn
+            .delete_text
+              Delete
     - else
-      .heart.hidden.active-heart
-        = image_tag 'heart-active.svg'
-      .heart.hidden.inactive-heart
-        = image_tag 'heart.svg'
+      .heart_btn
+        .heart.hidden.active-heart
+          = image_tag 'heart-active.svg'
+        .heart.hidden.inactive-heart
+          = image_tag 'heart.svg'

@@ -2,6 +2,7 @@
     border-radius: 50%;
     width: 50px;
     height: 50px;
+    border: 1px solid black;
 }
 
 .book_image {
@@ -50,4 +51,55 @@
 
 .article_toppage_content {
   text-overflow: ellipsis;
+}
+
+.article_detail_title {
+  font-size: 30px;
+  
+}
+
+.article_content_wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.detail_flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 2px solid #dde5e8;
+  margin-bottom: 10px;
+}
+
+.detail_bookinfo_flex {
+  display: flex;
+  flex-direction: column-reverse;
+  margin-left: 15px;
+}
+
+.detail_book_title {
+  font-size: small;
+}
+
+.detail_book_author {
+  font-size: small;
+  margin-bottom: 5px;
+}
+
+.article_border {
+  border-top: 2px solid #dde5e8;
+}
+
+.detail_article_content {
+  margin-top: 20px;
+  margin-bottom: 100px;
+}
+
+.article_btn {
+  margin-bottom: 50px;
+}
+
+.heart_btn {
+  float: right;
+  margin-bottom: 30px;
 }

@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+
   def index 
     @articles = Article.all.order(created_at: :desc)
     article_like_count = Article.joins(:likes).group(:article_id).count

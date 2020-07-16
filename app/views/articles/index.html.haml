@@ -5,7 +5,7 @@
     = submit_tag 'Search', :name => nil
 
 %h3
-  人気記事top3
+  人気記事top5
 .cards
   - @article_ranking.each do |rank|
     = link_to article_path(rank), class:'card' do
@@ -27,4 +27,6 @@
 
 = render 'commons/articles', articles: @articles
 
-= link_to '追加', searchs_path, class: 'text-decoration'
+= link_to searchs_path do
+  .float_btn
+    %i.fa.fa-plus

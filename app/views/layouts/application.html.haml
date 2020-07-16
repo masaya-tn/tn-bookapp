@@ -15,9 +15,10 @@
         = link_to 'BOOKLOG', root_path, class: ' pageTitle'
 
       - if user_signed_in?
-        = link_to 'マイページ', profile_path, class: 'mypage'
+        - if !current_page?(profile_path)
+          = link_to 'マイページ', profile_path, class: 'mypage'
       - else
-        = link_to 'ログイン', new_user_session_path, class: 'login-button'
+        = link_to 'ログイン', new_user_session_path, class: 'mypage'
     %p.notice
       = notice
     %p.alert
