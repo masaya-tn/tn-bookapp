@@ -27,6 +27,7 @@ gem 'hamlit'
 gem 'better_errors'
 gem 'devise'
 gem 'order_as_specified'
+gem 'rails-i18n'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

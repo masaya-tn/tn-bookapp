@@ -1,17 +1,16 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.login_wrapper
+  .app_name
+    BOOKLOG
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .email_field_wrapper
+      = f.label :メールアドレス, class: 'email'
+      %br/
+      = f.email_field :email, autofocus: true, autocomplete: "email", class: 'email_field'
+    .password_field_wrapper
+      = f.label :パスワード（６文字以上）, class: 'password'
+      %br/
+      = f.password_field :password, autocomplete: "current-password", class: 'password_field'
+    
+    %div
+      = f.submit "ログイン", class: 'login_btn'
+  = render "devise/shared/links"

@@ -1,0 +1,70 @@
+.login_wrapper {
+  background-color: white;
+  border: 1px solid #dde5e8;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 350px;
+  height: 450px;
+  margin-bottom: 30px;
+}
+
+.app_name { 
+  font-size: 35px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  
+}
+
+.email_field_wrapper {
+  margin-bottom: 5px;
+  
+}
+
+.email {
+  font-size: small;
+}
+
+.email_field {
+  width: 200px;
+}
+
+.password_field_wrapper {
+  margin-bottom: 10px;
+}
+
+.password {
+  font-size: small;
+}
+
+.password_field {
+  width: 200px;
+  margin-bottom: 30px;
+}
+
+.password_confirm_field {
+  width: 200px;
+}
+
+.login_btn {
+  width: 208px;
+  height: 30px;
+  border: none;
+  background-color: #3fb4fd;
+  color: white;
+  border-radius: 5px;
+  margin-bottom: 90px;
+}
+.login_btn:hover {
+  background-color: #009dff;
+}
+
+.loginpage-link {
+  text-decoration: none;
+  color: black;
+  font-size: small;
+  
+}
+.loginpage-link:hover {
+  text-decoration: underline;
+}

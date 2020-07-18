@@ -4,20 +4,25 @@
   = link_to '戻る', searchs_path
   = link_to '記事を書く', new_article_path
 - else
-  - @r.each do |r|
-    - volumeInfo = r['volumeInfo']
-    - @book_title = volumeInfo['title']
-    - if !@book_title.nil?
-      = @book_title
+  .searched_books
+    - @r.each do |r|
+      .searched_book
+        - volumeInfo = r['volumeInfo']
 
-    - @authors = volumeInfo['authors']
-    - if !@authors.nil?
-      - @authors.each do |author|
-        = author
+        - links = volumeInfo['imageLinks']
+        - if !links.nil?
+          - @image_url = links['thumbnail']
+          = image_tag @image_url
+        - else
+          画像がありません
 
-    - links = volumeInfo['imageLinks']
-    - if !links.nil?
-      - @image_url = links['thumbnail']
-      = image_tag @image_url
-        
-    = link_to '記事を書く', new_article_path(:book_title => @book_title, :authors => @authors, :image_url => @image_url)
+        - @book_title = volumeInfo['title']
+        - if !@book_title.nil?
+          = @book_title
+
+        - @authors = volumeInfo['authors']
+        - if !@authors.nil?
+          - @authors.each do |author|
+            = author
+            
+        = link_to '記事を書く', new_article_path(:book_title => @book_title, :authors => @authors, :image_url => @image_url), class: 'text-decoration'
