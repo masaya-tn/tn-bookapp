@@ -22,3 +22,15 @@
     border-bottom: 1px solid #dde5e8;
 
 }
+
+.searched_books {
+  display: flex;
+  flex-direction: column;
+}
+
+.searched_book {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #dde5e8;
+}
