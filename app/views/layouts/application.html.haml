@@ -2,7 +2,7 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title BooklogApp
+    %title Yomikata
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
@@ -12,7 +12,7 @@
   %body
     %header.header
       %p.header_pageTitle
-        = link_to 'BOOKLOG', root_path, class: ' pageTitle'
+        = link_to 'Yomikata', root_path, class: ' pageTitle'
 
       - if user_signed_in?
         - if !current_page?(profile_path)
