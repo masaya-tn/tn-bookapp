@@ -31,10 +31,11 @@
 
 .cards.profile_cards
   - user.articles.each do |a|
-    .card
+    = link_to article_path(a), class: 'card' do
       .article_toppage
         .book_image
-          = image_tag a.image_url
+          - if a.image_url
+            = image_tag a.image_url
         .article_details
           .article_title
             = a.title

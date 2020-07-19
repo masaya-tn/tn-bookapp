@@ -2,7 +2,8 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index 
-    @articles = Article.all.order(created_at: :desc)
+    @articles = Article.paginate(page:params[:page]).order(created_at: :desc)
+
     article_like_count = Article.joins(:likes).group(:article_id).count
     article_liked_ids = Hash[article_like_count.sort_by{ |_, v| -v }].keys
     @article_ranking = Article.where(id: article_liked_ids).order_as_specified(id: article_liked_ids).limit(5)

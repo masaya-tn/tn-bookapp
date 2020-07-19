@@ -1,5 +1,6 @@
 .articlesearch
-  気になる本の記事を検索
+  .search_text
+    気になる本の記事を検索
   = form_tag(searcheds_path,:method => 'get') do
     = text_field_tag :search
     = submit_tag 'Search', :name => nil
@@ -20,12 +21,13 @@
           .author_name
             = rank.author
           .article_toppage_content
-            = rank.content
+            = rank.content[0,50]
       .article_toppage_heart
         = image_tag 'heart.svg', class: 'iine-image'
         %span= rank.likes.count
 
 = render 'commons/articles', articles: @articles
+
 
 = link_to searchs_path do
   .float_btn

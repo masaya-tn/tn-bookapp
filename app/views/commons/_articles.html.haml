@@ -1,10 +1,12 @@
 %h3 新着記事
+
 .cards
   - articles.each do |article|
     = link_to article_path(article), class: 'card' do
       .article_toppage
-        .book_image
-          = image_tag article.image_url
+        - if article.image_url
+          .book_image
+            = image_tag article.image_url
         .article_details
           .article_title
             = article.title
@@ -13,8 +15,10 @@
           .author_name
             = article.author
           .article_toppage_content
-            = article.content[0,100]
+            = article.content[0,50]
       .article_toppage_heart
         = image_tag 'heart.svg', class: 'iine-image'
         %span= article.likes.count
 
+- if current_page?(articles_path)
+  = will_paginate

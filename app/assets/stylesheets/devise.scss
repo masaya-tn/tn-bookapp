@@ -1,3 +1,5 @@
+@import 'variables';
+
 .login_wrapper {
   background-color: white;
   border: 1px solid #dde5e8;
@@ -7,6 +9,9 @@
   width: 350px;
   height: 450px;
   margin-bottom: 30px;
+  @include sp {
+    width: 100%;
+  }
 }
 
 .app_name { 

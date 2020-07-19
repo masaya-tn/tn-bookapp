@@ -1,3 +1,5 @@
+@import 'variables';
+
 .cards {
     margin-top: 30px;
     display: flex;
@@ -21,11 +23,15 @@
     
     border-bottom: 1px solid #dde5e8;
 
+    @include sp {
+      margin-bottom: 5px;
+    }
 }
 
 .searched_books {
   display: flex;
   flex-direction: column;
+  
 }
 
 .searched_book {
@@ -33,4 +39,10 @@
   flex-direction: row;
   margin-bottom: 10px;
   border-bottom: 1px solid #dde5e8;
+  
+}
+
+.searched_text {
+  display: flex;
+  flex-direction: column;
 }
