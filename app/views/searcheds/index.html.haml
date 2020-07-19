@@ -2,9 +2,22 @@
   お探しの本についての記事は見つかりませんでした
   = link_to '戻る', articles_path, class: 'text-decoration'
 - else
-  - @searched.each do |s|
-    = link_to article_path(s), class: 'card' do
-      = image_tag s.image_url
-      = s.book_title
-      = s.author
-      = s.title
+  .cards
+  - @searched.each do |article|
+    = link_to article_path(article), class: 'card' do
+      .article_toppage
+        - if article.image_url
+          .book_image
+            = image_tag article.image_url
+        .article_details
+          .article_title
+            = article.title
+          .booktitle
+            = article.book_title
+          .author_name
+            = article.author
+          .article_toppage_content
+            = article.content[0,50]
+      .article_toppage_heart
+        = image_tag 'heart.svg', class: 'iine-image'
+        %span= article.likes.count

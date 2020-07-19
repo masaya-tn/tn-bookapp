@@ -1,0 +1,7 @@
+$sp: 480px; 
+
+@mixin sp {
+  @media (max-width: ($sp)) {
+    @content;
+  }
+}

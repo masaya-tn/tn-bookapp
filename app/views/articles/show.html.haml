@@ -8,7 +8,8 @@
       = @article.user.profile&.nickname
   .article_content_wrapper
     .detail_book_image
-      = image_tag @article.image_url
+      - if @article.image_url
+        = image_tag @article.image_url
     .detail_bookinfo_flex
       .detail_book_title
         = @article.book_title
