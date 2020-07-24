@@ -30,6 +30,8 @@ gem 'order_as_specified'
 gem 'rails-i18n'
 gem 'will_paginate',  '3.1.7'
 gem 'bootstrap-will_paginate','1.0.0'
+gem 'aws-sdk-s3', require: false
+
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

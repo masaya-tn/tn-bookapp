@@ -1,0 +1,16 @@
+{
+    "name": "yomikata",
+    "description": "This is yomikata",
+    "keywords": [],
+    "website": "",
+    "repository": "https://github.com/masaya-tn/tn-bookapp",
+    "env": {},
+    "addons": [
+      "heroku-postgresql:hobby-dev"
+    ],
+    "buildpacks": [{
+      "url": "heroku/nodejs"
+    }, {
+      "url": "heroku/ruby"
+    }]
+}
